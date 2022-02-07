@@ -1,54 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
+    <!doctype html>
+    <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
-</head>
+    <head>
+        <meta charset="utf-8">
+        <title>Exemplos de selectores</title>
+        <style>
+            div,
+            p {
+                background-color: rgb(225, 212, 248);
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    </head>
 
-<body>
-    <div id="contenedor">
-        <p>Lorem ipsum dolor sit amet.</p>
-        <span>Lorem, ipsum dolor.</span>
-        <div id="box1">            
-            <ul>
-                <li>Uno</li>
-                <li>dos</li>
-                <li>tres</li>
-                <li>cuatro</li>
-                <li>cinco</li>
-                <li>seis</li>
-            </ul>
+    <body>
+        <div id="cabecera">
+            <ol>
+                <p>Proba tódolos exemplos mostrados na teoría desta sección co código indicado.</p>
+                <span>Introduce novos div, p e span aniñados, engade novas clases e ids aos elementos.</span>
+                <p>Realiza modificacións CSS nese novo código HTML con tódolos selectores básicos.</p>
+                <li class="lista">Elemento 1</li>
+                <li class="lista">Elemento 2
+                    <ul>
+                        <li calss="importante">Elemento 2.1</li>
+                        <li class="importante">Elemento 2.2</li>
+                        <li class="importante">Elemento 2.3</li>
+                    </ul>
+                </li>
+                <li class="lista">Elemento 3</li>
+            </ol>
         </div>
-    </div>
-    <script>
-        /*
-            Proba tódolos exemplos mostrados na teoría desta sección co código indicado. 
-            Introduce novos <div>, <p> e <span> aniñados, engade novas clases e ids aos elementos. 
-            Realiza modificacións CSS nese novo código HTML con tódolos selectores básicos.
-        */
-        
-        //Editamos todos los li dentro de ul
-        $("ul > li ").css("background", "green");
-        
-        //editamos todos los ul dentro de div       
-        $("div > ul ").css("background", "blue");
-        $("div > ul ").css("text-align", "center");
-        $("div > ul ").css("list-style", "none");
-        
-        
-        //editamos div con id -> box1
-        $("div[id=box1]").css("border", "solid purple 6px");
-        $("div[id=box1]").css("borderRadius", "6%");
-        $("div[id=box1]").css("width", "150px");
-        $("div[id=box1]").css("background", "yellow");
+        <script>
+            /*
+                Proba tódolos exemplos mostrados na teoría desta sección co código indicado. 
+                Introduce novos <div>, <p> e <span> aniñados, engade novas clases e ids aos elementos. 
+                Realiza modificacións CSS nese novo código HTML con tódolos selectores básicos.
+            */
 
+            //Editamos todos los li dentro de ul (<ul><li></li></ul>)
+            $("ul > li ").css({
+                "background": "green",
+                "font-family": "calibri"
+            });
+            //editamos los textos span hijos de un div (<div><span></span><div>)
+            $("div > span").css({
+                "font-family":"times"
+            });
+            //editamos los p
+            $("p").css({
+                "background":"coral"
+            });
+            //color de fondo amarillo para los hijos directos de ol <ol> -> hijos <- </ol>
+            $("ol > li").css({
+                "background": "yellow"
+            });
 
-    </script>
-   
-</body>
+            //editamos todos los li dentro de ol y li dentro de ul (<ol><li></li></ol> y <ul><li></li></ul>)
+            $("ol > li").css({
+                "text-aling": "center",
+                "list-style": "none"
+            });
 
-</html>
+            //editamos <div id="cabecera">
+            $("div[id=cabecera]").css({
+                "border": "solid purple 6px",
+                "borderRadius": "6%",
+                "width":"300px",
+                "position":"relative",
+                "left":"35%",
+                "top":"50px"
+            });                        
+
+            //seleccionamos todos los elementos, y le damos color purple
+            $("*").css({                
+                "color": "purple"
+            });
+
+            //selector múltilpe de las clases <class="lista"> y <class="importante">
+            $(".importante, .lista").css({
+                "font-weight": "bold"
+            });
+            //estilo de letra cursiva para <class="lista">
+            $(".lista").css({
+                "font-style": "italic"
+            });
+        </script>
+    </body>
+
+    </html>
